@@ -5,14 +5,15 @@ import org.junit.Test;
 
 public class MoodAnalyzerTest {
 
-    MoodAnalyzer moodAnalyzer=new MoodAnalyzer();
     @Test
     public void givenMood_Should_returnSad(){
-        Assert.assertEquals(moodAnalyzer.analyseMood( "I am in Sad Mood" ),"SAD");
+        MoodAnalyzer moodAnalyzer=new MoodAnalyzer("I am in Sad mood");
+        Assert.assertEquals(moodAnalyzer.analyseMood(),"SAD");
     }
 
     @Test
     public void givenMood_Should_returnHappy(){
-        Assert.assertEquals(moodAnalyzer.analyseMood( "I am in any Mood" ),"HAPPY");
+        MoodAnalyzer moodAnalyzer=new MoodAnalyzer("I am in any mood");
+        Assert.assertEquals(moodAnalyzer.analyseMood(),"HAPPY");
     }
 }
