@@ -6,18 +6,21 @@ import org.junit.Test;
 public class MoodAnalyzerTest {
 
     @Test
-    public void givenMood_Should_returnSad(){
-        MoodAnalyzer moodAnalyzer=new MoodAnalyzer("I am in Sad mood");
-        Assert.assertEquals(moodAnalyzer.analyseMood(),"SAD");
+    public void givenNullMood_Should_returnexception() throws MoodAnalyzerException {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer( null );
+        try {
+            Assert.assertEquals( moodAnalyzer.analyseMood(), "HAPPY" );
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
     @Test
-    public void givenMood_Should_returnHappy(){
-        MoodAnalyzer moodAnalyzer=new MoodAnalyzer("I am in any mood");
-        Assert.assertEquals(moodAnalyzer.analyseMood(),"HAPPY");
-    }
-    @Test
-    public void givenNull_Should_returnHappy(){
-        MoodAnalyzer moodAnalyzer=new MoodAnalyzer(null);
-        Assert.assertEquals(moodAnalyzer.analyseMood(),"HAPPY");
+    public void givenEmptyMood_Should_returnexception() throws MoodAnalyzerException {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer( " " );
+        try {
+            Assert.assertEquals( moodAnalyzer.analyseMood(), "HAPPY" );
+        } catch (MoodAnalyzerException e){
+            e.printStackTrace();
+        }
     }
 }
